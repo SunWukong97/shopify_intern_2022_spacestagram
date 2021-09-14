@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import Card from "./components/card";
 
+import "./App.css";
+import Card from "./components/Card";
+import LikeButton from "./components/LikeButton";
 function App() {
   let todayDate = new Date().toISOString().slice(0, 10);
   let startDate = new Date();
@@ -14,7 +14,7 @@ function App() {
 
   //console.log(startDate);
 
-  let test;
+  let imageCards;
   let apiKey = "vn0fMtp6NRQpMEMQlXgvuFttofKGuxcMKFG0cixN";
   let apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${startDate}&end_date=${todayDate}`;
 
@@ -35,26 +35,36 @@ function App() {
       });
   }, []);
 
-  function arrayLoop(data2) {
+  function arrayLoop(arrayToLoop) {
     let info = [];
-    for (let item of data2) {
+    let group = [];
+    let counter = 0;
+    for (let item of arrayToLoop) {
       console.log(item.title);
-      info.push(
-        <Card
-          title={item.title}
-          imageUrl={item.url}
-          date={item.date}
-          description={item.explanation}
-        />
+      if (counter >= 2) {
+        info.push(<div className="row row-cols-2">{group}</div>);
+        counter = 0;
+        group = [];
+      }
+      group.push(
+        <div className="col">
+          <Card
+            title={item.title}
+            imageUrl={item.url}
+            date={item.date}
+            description={item.explanation}
+          />
+          <LikeButton />
+        </div>
       );
+      counter++;
     }
     return info;
   }
   if (!isLoading) {
-    test = arrayLoop(jsonData);
-    console.log(jsonData);
+    imageCards = arrayLoop(jsonData);
   }
-  return <div>{test}</div>;
+  return <div className="container">{imageCards}</div>;
 }
 
 export default App;
