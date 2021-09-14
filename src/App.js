@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "./App.css";
 import Card from "./components/Card";
-import LikeButton from "./components/LikeButton";
+
 function App() {
   let todayDate = new Date().toISOString().slice(0, 10);
   let startDate = new Date();
@@ -37,34 +37,35 @@ function App() {
 
   function arrayLoop(arrayToLoop) {
     let info = [];
-    let group = [];
-    let counter = 0;
+
     for (let item of arrayToLoop) {
       console.log(item.title);
-      if (counter >= 2) {
-        info.push(<div className="row row-cols-2">{group}</div>);
-        counter = 0;
-        group = [];
-      }
-      group.push(
-        <div className="col">
-          <Card
-            title={item.title}
-            imageUrl={item.url}
-            date={item.date}
-            description={item.explanation}
-          />
-          <LikeButton />
+
+      info.push(
+        <div className="row justify-content-center mt-4">
+          <div className="col-lg-4 col-md-8 col-sm-auto">
+            <Card
+              title={item.title}
+              mediaType={item.media_type}
+              imageUrl={item.url}
+              date={item.date}
+              description={item.explanation}
+            />
+          </div>
         </div>
       );
-      counter++;
     }
     return info;
   }
   if (!isLoading) {
     imageCards = arrayLoop(jsonData);
   }
-  return <div className="container">{imageCards}</div>;
+  return (
+    <React.Fragment>
+      <h1>Spacestagram</h1>
+      <div className="container ">{imageCards}</div>
+    </React.Fragment>
+  );
 }
 
 export default App;
