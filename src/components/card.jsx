@@ -6,7 +6,11 @@ function Card(props) {
     <div>
       <h2>{title}</h2>
       <p>{date}</p>
-      <img src={imageUrl} alt="an picture taken by NASA of space" />
+      <img
+        src={imageUrl}
+        alt="an picture taken by NASA of space"
+        className="img-fluid"
+      />
       <p>{description}</p>
     </div>
   );
