@@ -1,16 +1,25 @@
 import React, { useState } from "react";
+import "./LikeButton.css";
 function LikeButton() {
   const [clickedLike, setClickedLike] = useState(false);
 
   if (clickedLike) {
     return (
-      <button onClick={handleClick} style={{ backgroundColor: "green" }}>
+      <button
+        className="my-like-button"
+        onClick={handleClick}
+        style={{ backgroundColor: "green" }}
+      >
         Like
       </button>
     );
   } else {
     return (
-      <button onClick={handleClick} style={{ backgroundColour: "white" }}>
+      <button
+        className="my-like-button"
+        onClick={handleClick}
+        style={{ backgroundColour: "white" }}
+      >
         Like
       </button>
     );
