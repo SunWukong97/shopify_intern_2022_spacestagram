@@ -42,16 +42,14 @@ function App() {
       console.log(item.title);
 
       info.push(
-        <div className="row justify-content-center mt-4">
-          <div className="col-lg-4 col-md-8 col-sm-auto">
-            <Card
-              title={item.title}
-              mediaType={item.media_type}
-              imageUrl={item.url}
-              date={item.date}
-              description={item.explanation}
-            />
-          </div>
+        <div>
+          <Card
+            title={item.title}
+            mediaType={item.media_type}
+            imageUrl={item.url}
+            date={item.date}
+            description={item.explanation}
+          />
         </div>
       );
     }
@@ -63,7 +61,7 @@ function App() {
   return (
     <React.Fragment>
       <h1>Spacestagram</h1>
-      <div className="container ">{imageCards}</div>
+      <div className="grid-container ">{imageCards}</div>
     </React.Fragment>
   );
 }
