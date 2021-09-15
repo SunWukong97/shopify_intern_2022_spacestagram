@@ -27,7 +27,7 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setJsonData(data);
+        setJsonData(data.reverse());
         setIsLoading(false);
       })
       .catch((error) => {
