@@ -14,6 +14,27 @@ function LikeButton() {
       {icon}
     </button>
   );
+  // if (clickedLike) {
+  //   return (
+  //     <button
+  //       className="my-like-button"
+  //       onClick={handleClick}
+  //       style={{ backgroundColor: "green" }}
+  //     >
+  //       <i class="fas fa-heart"></i>
+  //     </button>
+  //   );
+  // } else {
+  //   return (
+  //     <button
+  //       className="my-like-button"
+  //       onClick={handleClick}
+  //       style={{ backgroundColour: "white" }}
+  //     >
+  //       Like
+  //     </button>
+  //   );
+  // }
 
   function handleClick() {
     setClickedLike(!clickedLike);
