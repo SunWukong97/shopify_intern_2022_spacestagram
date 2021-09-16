@@ -26,10 +26,11 @@ function App() {
         if (!response.ok) {
           throw new Error("no reposnse");
         }
+
         return response.json();
       })
       .then((data) => {
-        setJsonData(data.reverse());
+        setJsonData(data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -61,15 +62,15 @@ function App() {
   }
   if (!isLoading) {
     loadingScreenDisplay = "none";
-    imageCards = arrayLoop(jsonData);
+    imageCards = arrayLoop(jsonData.reverse());
   } else {
     loadingScreenDisplay = "block";
   }
 
   return (
     <React.Fragment>
-      <LoadingScreen display={loadingScreenDisplay} />
       <h1>Spacestagram</h1>
+      <LoadingScreen display={loadingScreenDisplay} />
       <div className="container ">{imageCards}</div>
     </React.Fragment>
   );
