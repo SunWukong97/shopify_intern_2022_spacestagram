@@ -17,7 +17,6 @@ function LikeButton() {
 
   function handleClick() {
     setClickedLike(!clickedLike);
-    console.log(clickedLike);
   }
 }
 
