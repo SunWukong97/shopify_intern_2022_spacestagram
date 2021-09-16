@@ -1,3 +1,7 @@
 body {
   background-color: rgb(241, 241, 241);
 }
+
+.container {
+  padding-bottom: 5em;
+}
