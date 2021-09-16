@@ -65,7 +65,7 @@ function App() {
   } else {
     loadingScreenDisplay = "block";
   }
-  console.log(isLoading);
+
   return (
     <React.Fragment>
       <LoadingScreen display={loadingScreenDisplay} />
