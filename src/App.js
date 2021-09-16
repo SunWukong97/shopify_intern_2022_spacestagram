@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "./App.css";
 import Card from "./components/Card";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
   let todayDate = new Date().toISOString().slice(0, 10);
@@ -15,6 +16,7 @@ function App() {
   //console.log(startDate);
 
   let imageCards;
+  let loadingScreenDisplay;
   let apiKey = "vn0fMtp6NRQpMEMQlXgvuFttofKGuxcMKFG0cixN";
   let apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${startDate}&end_date=${todayDate}`;
 
@@ -42,7 +44,7 @@ function App() {
       console.log(item.title);
 
       info.push(
-        <div className="row justify-content-center mt-4">
+        <div key={item.title} className="row justify-content-center mt-4">
           <div className="col-lg-4 col-md-8 col-sm-auto">
             <Card
               title={item.title}
@@ -58,10 +60,15 @@ function App() {
     return info;
   }
   if (!isLoading) {
+    loadingScreenDisplay = "none";
     imageCards = arrayLoop(jsonData);
+  } else {
+    loadingScreenDisplay = "block";
   }
+  console.log(isLoading);
   return (
     <React.Fragment>
+      <LoadingScreen display={loadingScreenDisplay} />
       <h1>Spacestagram</h1>
       <div className="container ">{imageCards}</div>
     </React.Fragment>
