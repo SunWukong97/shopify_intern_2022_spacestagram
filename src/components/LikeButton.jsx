@@ -3,7 +3,11 @@ import "./LikeButton.css";
 function LikeButton() {
   const [clickedLike, setClickedLike] = useState(false);
 
-  let icon = clickedLike ? <i class="fas fa-heart"></i> : "Like";
+  let icon = clickedLike ? (
+    <i class="fas fa-heart heart-animation"></i>
+  ) : (
+    "Like"
+  );
   let backgroundColour = clickedLike ? "red" : "white";
   return (
     <button
