@@ -11,9 +11,6 @@ function App() {
   startDate = startDate.toISOString().slice(0, 10);
   const [isLoading, setIsLoading] = useState(true);
   const [jsonData, setJsonData] = useState(null);
-  // console.log(todayDate);
-
-  //console.log(startDate);
 
   let imageCards;
   let loadingScreenDisplay;
