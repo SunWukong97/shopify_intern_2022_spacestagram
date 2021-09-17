@@ -5,6 +5,23 @@
   border-style: solid;
   border-color: rgb(105, 105, 105);
 }
+
 .fa-heart {
   color: white;
+}
+
+.heart-animation {
+  animation: expand 0.25s linear none;
+}
+
+@keyframes expand {
+  0% {
+    font-size: 0.1rem;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    font-size: 1rem;
+    transform: rotate(360deg);
+  }
 }
