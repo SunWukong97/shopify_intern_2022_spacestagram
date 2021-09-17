@@ -1,9 +1,11 @@
 import React from "react";
-
+import "./NavBar.css";
 function NavBar() {
   return (
-    <nav>
-      <h1>Spacestagram</h1>
+    <nav className="navbar">
+      <span className="navbar-brand h1" href="#">
+        Spacestagram
+      </span>
     </nav>
   );
 }
