@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
 import LoadingScreen from "./components/LoadingScreen";
+import NavBar from "./components/NavBar";
 
 function App() {
   let todayDate = new Date().toISOString().slice(0, 10);
@@ -27,7 +28,7 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setJsonData(data);
+        setJsonData(data.reverse());
         setIsLoading(false);
       })
       .catch((error) => {
@@ -59,14 +60,14 @@ function App() {
   }
   if (!isLoading) {
     loadingScreenDisplay = "none";
-    imageCards = arrayLoop(jsonData.reverse());
+    imageCards = arrayLoop(jsonData);
   } else {
     loadingScreenDisplay = "block";
   }
 
   return (
     <React.Fragment>
-      <h1>Spacestagram</h1>
+      <NavBar />
       <LoadingScreen display={loadingScreenDisplay} />
       <div className="container ">{imageCards}</div>
     </React.Fragment>
