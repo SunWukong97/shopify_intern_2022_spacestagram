@@ -65,6 +65,10 @@ function App() {
     return info;
   }
 
+  /**
+   *
+   * @param {*} dateValue the number of days to go back from the current date
+   */
   function dateSelection(dateValue) {
     let newStartDate = new Date();
     newStartDate.setDate(new Date().getDate() - dateValue);
