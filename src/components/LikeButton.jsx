@@ -4,7 +4,7 @@ function LikeButton() {
   const [clickedLike, setClickedLike] = useState(false);
 
   let icon = clickedLike ? (
-    <i class="fas fa-heart heart-animation"></i>
+    <i className="fas fa-heart heart-animation"></i>
   ) : (
     "Like"
   );
