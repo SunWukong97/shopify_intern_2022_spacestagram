@@ -9,7 +9,7 @@ function NavBar(props) {
         <span className="navbar-brand h1" href="#">
           Spacestagram
         </span>
-        <p>Brought to you by NASA's APOD Api</p>
+        <p>Brought to you by NASA's APOD API</p>
       </div>
       <DateSelectMenu dateSelection={dateSelection} />
     </nav>
