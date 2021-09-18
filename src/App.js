@@ -36,7 +36,7 @@ function App() {
       });
   }, []);
 
-  function arrayLoop(arrayToLoop) {
+  function createCards(arrayToLoop) {
     let info = [];
 
     for (let item of arrayToLoop) {
@@ -60,7 +60,7 @@ function App() {
   }
   if (!isLoading) {
     loadingScreenDisplay = "none";
-    imageCards = arrayLoop(jsonData);
+    imageCards = createCards(jsonData);
   } else {
     loadingScreenDisplay = "block";
   }
