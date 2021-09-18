@@ -1,6 +1,8 @@
 import React from "react";
 import "./NavBar.css";
-function NavBar() {
+import DateSelectMenu from "./DateSelectMenu";
+function NavBar(props) {
+  const { dateSelection } = props;
   return (
     <nav className="navbar">
       <div>
@@ -9,6 +11,7 @@ function NavBar() {
         </span>
         <p>Brought to you by NASA's APOD Api</p>
       </div>
+      <DateSelectMenu dateSelection={dateSelection} />
     </nav>
   );
 }
