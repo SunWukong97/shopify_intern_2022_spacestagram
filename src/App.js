@@ -6,19 +6,27 @@ import LoadingScreen from "./components/LoadingScreen";
 import NavBar from "./components/NavBar";
 
 function App() {
+  let imageCards;
+  let loadingScreenDisplay;
+
   let todayDate = new Date().toISOString().slice(0, 10);
-  let startDate = new Date();
-  startDate.setDate(startDate.getDate() - 10);
-  startDate = startDate.toISOString().slice(0, 10);
+  let startingDate = new Date();
+  startingDate.setDate(startingDate.getDate() - 10);
+  startingDate = startingDate.toISOString().slice(0, 10);
+
+  //hooks
   const [isLoading, setIsLoading] = useState(true);
   const [jsonData, setJsonData] = useState(null);
 
-  let imageCards;
-  let loadingScreenDisplay;
   let apiKey = "vn0fMtp6NRQpMEMQlXgvuFttofKGuxcMKFG0cixN";
-  let apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${startDate}&end_date=${todayDate}`;
+  let apiUrl;
 
   useEffect(() => {
+    fetchApi(startingDate);
+  }, []);
+
+  function fetchApi(this_startDate) {
+    apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${this_startDate}&end_date=${todayDate}`;
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -34,14 +42,12 @@ function App() {
       .catch((error) => {
         console.error("problem fetching data");
       });
-  }, []);
+  }
 
   function createCards(arrayToLoop) {
     let info = [];
 
     for (let item of arrayToLoop) {
-      console.log(item.title);
-
       info.push(
         <div key={item.title} className="row justify-content-center mt-4">
           <div className="col-lg-4 col-md-8 col-sm-auto">
@@ -58,6 +64,15 @@ function App() {
     }
     return info;
   }
+
+  function dateSelection(dateValue) {
+    let newStartDate = new Date();
+    newStartDate.setDate(new Date().getDate() - dateValue);
+    newStartDate = newStartDate.toISOString().slice(0, 10);
+
+    setIsLoading(true);
+    fetchApi(newStartDate);
+  }
   if (!isLoading) {
     loadingScreenDisplay = "none";
     imageCards = createCards(jsonData);
@@ -67,7 +82,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <NavBar />
+      <NavBar dateSelection={dateSelection} />
       <LoadingScreen display={loadingScreenDisplay} />
       <div className="container ">{imageCards}</div>
     </React.Fragment>
