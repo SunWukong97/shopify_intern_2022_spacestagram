@@ -1,0 +1,35 @@
+.share-button-container {
+  position: relative;
+}
+.my-share-button {
+  width: 5em;
+  border-radius: 0.25em;
+  border-width: 0.05em;
+  border-style: solid;
+  border-color: rgb(105, 105, 105);
+  background-color: white;
+}
+.share-options {
+  position: absolute;
+  top: -5em;
+  left: -5em;
+  width: 10em;
+  height: fit-content;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+
+  background-color: white;
+  border: solid rgb(131, 131, 131) 0.1em;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fa-link {
+  background-color: rgb(83, 83, 83);
+  color: white;
+  padding: 0.5em;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  font-size: 1.5rem;
+}
