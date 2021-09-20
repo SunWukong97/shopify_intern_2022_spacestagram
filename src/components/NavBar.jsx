@@ -4,7 +4,7 @@ import DateSelectMenu from "./DateSelectMenu";
 function NavBar(props) {
   const { dateSelection } = props;
   return (
-    <nav className="navbar">
+    <nav className="navbar fixed-top">
       <div>
         <span className="navbar-brand h1" href="#">
           Spacestagram
