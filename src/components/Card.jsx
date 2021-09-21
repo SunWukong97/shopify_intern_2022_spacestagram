@@ -1,5 +1,7 @@
 import React from "react";
 import LikeButton from "./LikeButton";
+import ShareButton from "./ShareButton";
+import "./Card.css";
 function Card(props) {
   const { title, mediaType, imageUrl, date, description } = props;
   let imageElement;
@@ -35,7 +37,14 @@ function Card(props) {
         <h2 className="card-title">{title}</h2>
         <p>{date}</p>
         <p className="card-text">{description}</p>
-        <LikeButton />
+        <div className="my-buttons">
+          <LikeButton />
+          <ShareButton
+            urlLink={imageUrl}
+            description={description}
+            title={title}
+          />
+        </div>
       </div>
     </div>
   );

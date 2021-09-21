@@ -23,6 +23,7 @@ function App() {
 
   useEffect(() => {
     fetchApi(startingDate);
+    // eslint-disable-next-line
   }, []);
 
   function fetchApi(this_startDate) {
