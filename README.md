@@ -2,7 +2,7 @@
 
 ## General Info
 
-My entry for the shopify winter 2022 internship challenge
+My entry for the shopify winter 2022 internship challenge.  
 Created using React, and bootstrap along with the NASA APOD (Astrology Picture Of the Day) API.
 
 ## Table of Contents
