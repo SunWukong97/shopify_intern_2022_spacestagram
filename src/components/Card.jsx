@@ -39,7 +39,11 @@ function Card(props) {
         <p className="card-text">{description}</p>
         <div className="my-buttons">
           <LikeButton />
-          <ShareButton urlLink={imageUrl} />
+          <ShareButton
+            urlLink={imageUrl}
+            description={description}
+            title={title}
+          />
         </div>
       </div>
     </div>
