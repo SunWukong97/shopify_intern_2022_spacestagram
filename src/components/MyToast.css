@@ -8,7 +8,7 @@
   position: fixed;
   z-index: 1;
   top: 75vh;
-  left: 45vw;
+  left: 35vw;
   text-align: center;
   width: fit-content;
   height: fit-content;
@@ -38,5 +38,19 @@
   100% {
     display: none;
     opacity: 0%;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .my-toast {
+    top: 75vh;
+    left: 42vw;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .my-toast {
+      top: 75vh;
+      left: 45vw;
+    }
   }
 }
