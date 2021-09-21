@@ -5,11 +5,13 @@ import {
   TwitterShareButton,
   TwitterIcon,
 } from "react-share";
+import MyToast from "./MyToast";
 import "./ShareButton.css";
 
 function ShareButton(props) {
   const { urlLink } = props;
   const [showShareOptions, setShowShareOptionsDisplay] = useState(false);
+  const [copyLinkClicked, setCopyLinkClicked] = useState(false);
   const ref = useRef(null);
 
   let shareOptions;
@@ -18,6 +20,10 @@ function ShareButton(props) {
   }
   function copyLink() {
     navigator.clipboard.writeText(urlLink);
+    setCopyLinkClicked(true);
+    setTimeout(() => {
+      setCopyLinkClicked(false);
+    }, 2000);
   }
 
   //used to check if the component has mounted onto the DOM
@@ -48,16 +54,19 @@ function ShareButton(props) {
         <TwitterShareButton url={urlLink}>
           <TwitterIcon size={50} />
         </TwitterShareButton>
-        <i className="fas fa-link"></i>
+        <i className="fas fa-link" onClick={copyLink}></i>
       </div>
     );
   }
   return (
-    <div className="share-button-container">
-      <button className="my-share-button" onClick={share}>
-        Share
-      </button>
-      {shareOptions}
+    <div>
+      <div className="share-button-container">
+        <button className="my-share-button" onClick={share}>
+          Share
+        </button>
+        {shareOptions}
+      </div>
+      {copyLinkClicked ? <MyToast /> : ""}
     </div>
   );
 }
