@@ -12,6 +12,8 @@ function ShareButton(props) {
   const { urlLink, description, title } = props;
   const [showShareOptions, setShowShareOptionsDisplay] = useState(false);
   const [copyLinkClicked, setCopyLinkClicked] = useState(false);
+
+  //used to reference a specific element in the DOM similar to documentQuerySelector
   const ref = useRef(null);
 
   let shareOptions;
