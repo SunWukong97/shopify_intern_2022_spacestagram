@@ -9,7 +9,7 @@ import MyToast from "./MyToast";
 import "./ShareButton.css";
 
 function ShareButton(props) {
-  const { urlLink } = props;
+  const { urlLink, description, title } = props;
   const [showShareOptions, setShowShareOptionsDisplay] = useState(false);
   const [copyLinkClicked, setCopyLinkClicked] = useState(false);
   const ref = useRef(null);
@@ -48,10 +48,10 @@ function ShareButton(props) {
   if (showShareOptions) {
     shareOptions = (
       <div ref={ref} className="share-options">
-        <FacebookShareButton url={urlLink}>
+        <FacebookShareButton url={urlLink} quote={description}>
           <FacebookIcon size={50} />
         </FacebookShareButton>
-        <TwitterShareButton url={urlLink}>
+        <TwitterShareButton url={urlLink} title={title}>
           <TwitterIcon size={50} />
         </TwitterShareButton>
         <i className="fas fa-link" onClick={copyLink}></i>
