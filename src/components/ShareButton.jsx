@@ -68,7 +68,8 @@ function ShareButton(props) {
         </button>
         {shareOptions}
       </div>
-      {copyLinkClicked ? <MyToast /> : ""}
+      {copyLinkClicked ? <MyToast linkButtonClicked={copyLinkClicked} /> : ""}
+      {/* <MyToast linkButtonClicked={copyLinkClicked} /> */}
     </div>
   );
 }
