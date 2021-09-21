@@ -3,7 +3,7 @@
 ## General Info
 
 My entry for the shopify winter 2022 internship challenge.  
-Created using React, and bootstrap along with the NASA APOD (Astrology Picture Of the Day) API.
+Created using React, and bootstrap along with the NASA APOD (Astrology Picture Of the Day) API.  
 Link to web app: https://sunwukong97.github.io/spacestagram/
 
 ## Table of Contents
