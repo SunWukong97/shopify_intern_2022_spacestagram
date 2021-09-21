@@ -1,12 +1,8 @@
-.hidden {
-  display: none;
-}
-
 .my-toast {
   background-color: rgb(106, 106, 241);
   color: white;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 75vh;
   left: 35vw;
   text-align: center;
@@ -21,9 +17,10 @@
   font-weight: 500;
 }
 
-.my-toast-animation {
+/* animations don't work for some reason on github pages */
+/* .my-toast-animation {
   display: block;
-  animation: notify 2s 1 normal forwards;
+  animation: notify 3s normal forwards;
 }
 
 @keyframes notify {
@@ -39,7 +36,7 @@
     display: none;
     opacity: 0%;
   }
-}
+} */
 
 @media screen and (min-width: 720px) {
   .my-toast {
