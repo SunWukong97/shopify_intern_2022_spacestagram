@@ -14,7 +14,7 @@ Link to web app: https://thomasnly.github.io/spacestagram/
 ## Features Added
 
 - Added an animation to the like button.
-- Added a date selector that can go back 10, 20,30, 2 months.
+- Added a date selector that can go back 10, 20, 30, 2 months.
 - Created a share button that allows users to share to either facebook, twitter or the direct link.
 - Added a loading state while waiting for NASA's api to return data.
 
