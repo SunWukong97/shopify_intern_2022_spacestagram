@@ -37,7 +37,7 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setJsonData(data.reverse());
+        setJsonData(data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -68,7 +68,7 @@ function App() {
 
   /**
    *
-   * @param {*} dateValue the number of days to go back from the current date
+   * @param {number} dateValue the number of days to go back from the current date
    */
   function dateSelection(dateValue) {
     let newStartDate = new Date();
