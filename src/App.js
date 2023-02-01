@@ -38,6 +38,7 @@ function App() {
       })
       .then((data) => {
         setJsonData(data);
+
         setIsLoading(false);
       })
       .catch((error) => {
